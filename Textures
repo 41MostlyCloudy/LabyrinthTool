@@ -1,1 +1,24 @@
+A file containing all of the texture data.
 
+In the future, a loader could be included in the repository so that people could add their own textures.
+
+The file size could be much smaller, but unfortunately a large image was used to texture most of the included .obj file.
+This could be fixed in the future by redoing the uv map on the .obj file to use smaller tiled textures, but that is not a priority.
+
+.lttex file format
+COLOR PALETTE
+      -256 colors, 3 bytes per color (all pixels use these colors)
+ 
+COLOR GRADIENT
+      -16384 colors, 1 byte per color (used to lighten and darken colors)
+
+TEXTURE DATA (for each texture
+      -Boolean flags:
+          -1 byte
+              -Scrolling, additive, no cull (triangles with additive textures brighten or darken triangles behind them.) (Triangles with the no cull flag are drawn on both sides.)
+      -Texture width:
+          -2 bytes
+      -Texture height:
+          -2 bytes
+      -Pixel data:
+          -1 byte per pixel (corresponding with a color in the color palette)
